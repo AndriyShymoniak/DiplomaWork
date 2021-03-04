@@ -1,15 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-.navbar-custom{
+html {
+  overflow-x: hidden;
+}
+
+.navbar-custom {
   font-size: 1.8em;
   padding-right: 1em;
 }
 
-.carousel-custom-element{
+.carousel-custom-element {
   height: 80vh;
   max-width: 100%;
 }
 
-.video-custom{
+.video-custom {
   width: 80%;
   height: 50vh;
   margin-left: auto;
