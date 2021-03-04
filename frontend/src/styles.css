@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 .navbar-custom{
-  font-size: 2em;
+  font-size: 1.8em;
   padding-right: 1em;
+}
+
+.carousel-custom-element{
+  height: 80vh;
+  max-width: 100%;
+}
+
+.video-custom{
+  width: 80%;
+  height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }

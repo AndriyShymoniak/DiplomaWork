@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-mainpage',
@@ -13,3 +13,5 @@ export class MainpageComponent implements OnInit {
   }
 
 }
+
+

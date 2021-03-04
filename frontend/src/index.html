@@ -5,12 +5,11 @@
   <title>Frontend</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--    Bootstrap    -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,11 +25,51 @@
     </li>
   </ul>
 </nav>
+
+<div class="row">
+  <div class="col-md-10 offset-md-1">
+    <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda impedit ipsam officiis provident quidem!
+      Aliquam aperiam deleniti dignissimos eos ex facilis nemo praesentium sit veniam voluptatibus? Aperiam cum
+      recusandae voluptates?</h2>
+    <div id="demo" class="carousel slide" data-ride="carousel" data-interval="3000">
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+        <div class="carousel-item active ">
+          <div class="d-flex justify-content-center carousel-custom-element">
+            <img src="http://www.mandysam.com/img/random.jpg">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center carousel-custom-element">
+            <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="d-flex justify-content-center carousel-custom-element">
+            <img src="https://tvline.com/wp-content/uploads/2016/08/the-simpsons-donald-trump-episode.jpg">
+          </div>
+        </div>
+      </div>
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda commodi corporis delectus dolore ducimus
+      eos, error, fuga ipsam laboriosam officia omnis perferendis, quam quasi quod recusandae repellat saepe sed?</p>
+    <video width="400" controls class="video-custom">
+      <source src="resources/traffic_detected2.avi" type="video/avi">
+      Your browser does not support HTML video.
+    </video>
+  </div>
+</div>
 <app-root></app-root>
 </body>
-<!--    Bootstrap JS    -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-<script src="src/resources/jquery.min.js"></script>
 </html>
