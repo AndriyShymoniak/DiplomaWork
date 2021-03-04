@@ -1,1 +1,87 @@
 <p>recognizepage works!</p>
+<div class="row">
+  <div class="col-md-8">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus adipisci alias aperiam corporis facere
+      fuga fugit magni maiores nam nesciunt placeat provident qui recusandae repellendus totam, vero. Aspernatur
+      corporis cumque earum fugiat ipsum magni, minima reiciendis sequi? Doloribus eveniet quis repellendus sunt
+      voluptate.
+    </p>
+
+    <div>
+      <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDrag (files)="filesDropped($event)">
+        <div class="text-wrapper">
+          <div class="centered">Drop your file here!</div>
+        </div>
+      </div>
+      <!--droped image preview-->
+      <div *ngFor="let file of files">
+        <img *ngIf="file" [src]="file.url" class="uploaded-image-custom">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam architecto corporis culpa cupiditate
+      dolores earum eligendi eos error expedita facilis fugit harum in.</p>
+
+    <h4>DMS (degrees, minutes, seconds)*</h4>
+    <form>
+      <div class="form-row">
+        <div class="col-md-4">
+          <h5>Latitude:</h5>
+        </div>
+        <div class="col-md-8">
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputLatitudeDeg">
+            </div>
+            <div class="form-group col-md-1">
+              <h5>&deg;</h5>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputLatitudeMin">
+            </div>
+            <div class="form-group col-md-1">
+              <h5>'</h5>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputLatitudeSec">
+            </div>
+            <div class="form-group col-md-1">
+              <h5>''</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-4">
+          <h5>Longitude:</h5>
+        </div>
+        <div class="col-md-8">
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputLongitudeDeg">
+            </div>
+            <div class="form-group col-md-1">
+              <h5>&deg;</h5>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputLongitudeMin">
+            </div>
+            <div class="form-group col-md-1">
+              <h5>'</h5>
+            </div>
+            <div class="form-group col-md-3">
+              <input type="text" class="form-control" id="inputLongitudeSec">
+            </div>
+            <div class="form-group col-md-1">
+              <h5>''</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <button type="button"  class="btn btn-primary" (click)="upload()">Upload Image</button>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FileHandle } from './dragDrop.directive';
 
 @Component({
   selector: 'app-recognizepage',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecognizepageComponent implements OnInit {
 
+  files: FileHandle[] = [];
   constructor() { }
 
   ngOnInit(): void {
   }
+  filesDropped(files: FileHandle[]): void {
+    this.files = files;
+  }
 
+  upload(): void {
+    console.log(this.files);
+    // get image upload file obj;
+  }
 }
