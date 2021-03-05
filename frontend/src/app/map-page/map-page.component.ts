@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mappage',
-  templateUrl: './mappage.component.html',
-  styleUrls: ['./mappage.component.css']
+  templateUrl: './map-page.component.html',
+  styleUrls: ['./map-page.component.css']
 })
-export class MappageComponent implements OnInit {
+export class MapPageComponent implements OnInit {
 
   constructor() { }
 

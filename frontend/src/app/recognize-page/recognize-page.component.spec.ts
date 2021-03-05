@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecognizepageComponent } from './recognizepage.component';
+import { RecognizePageComponent } from './recognize-page.component';
 
 describe('RecognizepageComponent', () => {
-  let component: RecognizepageComponent;
-  let fixture: ComponentFixture<RecognizepageComponent>;
+  let component: RecognizePageComponent;
+  let fixture: ComponentFixture<RecognizePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RecognizepageComponent ]
+      declarations: [ RecognizePageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RecognizepageComponent);
+    fixture = TestBed.createComponent(RecognizePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

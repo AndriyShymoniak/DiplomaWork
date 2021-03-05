@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import { MainpageComponent} from './mainpage/mainpage.component';
-import {MappageComponent} from './mappage/mappage.component';
-import { RecognizepageComponent} from './recognizepage/recognizepage.component';
+import { MainPageComponent} from './main-page/main-page.component';
+import {MapPageComponent} from './map-page/map-page.component';
+import { RecognizePageComponent} from './recognize-page/recognize-page.component';
 
 const routes: Routes = [
-  {path: '', component: MainpageComponent},
-  {path: 'recognize', component: RecognizepageComponent},
-  {path: 'map', component: MappageComponent}
+  {path: '', component: MainPageComponent},
+  {path: 'recognize', component: RecognizePageComponent},
+  {path: 'map', component: MapPageComponent}
 ];
 
 @NgModule({

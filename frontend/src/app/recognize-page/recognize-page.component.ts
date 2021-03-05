@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FileHandle } from './dragDrop.directive';
+import { FileHandle } from './drag-drop.directive';
 
 @Component({
   selector: 'app-recognizepage',
-  templateUrl: './recognizepage.component.html',
-  styleUrls: ['./recognizepage.component.css']
+  templateUrl: './recognize-page.component.html',
+  styleUrls: ['./recognize-page.component.css']
 })
-export class RecognizepageComponent implements OnInit {
+export class RecognizePageComponent implements OnInit {
 
   files: FileHandle[] = [];
   constructor() { }

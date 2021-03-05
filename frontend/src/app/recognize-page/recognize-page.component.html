@@ -7,7 +7,6 @@
       corporis cumque earum fugiat ipsum magni, minima reiciendis sequi? Doloribus eveniet quis repellendus sunt
       voluptate.
     </p>
-
     <div>
       <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDrag (files)="filesDropped($event)">
         <div class="text-wrapper">
@@ -23,8 +22,7 @@
   <div class="col-md-4">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam architecto corporis culpa cupiditate
       dolores earum eligendi eos error expedita facilis fugit harum in.</p>
-
-    <h4>DMS (degrees, minutes, seconds)*</h4>
+    <h5>DMS (degrees, minutes, seconds)*</h5>
     <form>
       <div class="form-row">
         <div class="col-md-4">
@@ -81,7 +79,6 @@
         </div>
       </div>
     </form>
-
     <button type="button"  class="btn btn-primary" (click)="upload()">Upload Image</button>
   </div>
 </div>
