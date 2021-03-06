@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MapApiService } from './map-api.service';
 
 class LocationMarker {
   lat: string;
@@ -10,26 +11,30 @@ class LocationMarker {
   }
 }
 
-const mapMarkers = [
-  new LocationMarker('48.079616', '38.431955'),
-  new LocationMarker('47.938272', '38.626634'),
-  new LocationMarker('48.004201', '38.978330'),
-  new LocationMarker('47.795377', '38.496495')
-];
-
 @Component({
   selector: 'app-mappage',
   templateUrl: './map-page.component.html',
-  styleUrls: ['./map-page.component.css']
+  styleUrls: ['./map-page.component.css'],
+  providers: [MapApiService]
 })
 
 export class MapPageComponent implements OnInit {
   latitude = 48.079616;
   longitude = 38.431955;
-  markers = mapMarkers;
+  markers;
 
-  constructor() {
-    console.log(this.markers);
+  constructor(private api: MapApiService) {
+    this.getRecognizedObjects();
+  }
+
+  getRecognizedObjects = () => {
+    this.api.getAllRecognizedObjects().subscribe(
+      data => {
+        this.markers = data;
+      }, error => {
+        console.log(error);
+      }
+    );
   }
 
   ngOnInit(): void {
