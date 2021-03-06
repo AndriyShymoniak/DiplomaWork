@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .serializers import RecognizedObjectSerializer
+from .models import RecognizedObject
 
-# Create your views here.
+
+# API endpoint that allows users to be viewed or edited.
+class RecognizedObjectViewSet(viewsets.ModelViewSet):
+    queryset = RecognizedObject.objects.all()
+    serializer_class = RecognizedObjectSerializer
