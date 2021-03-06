@@ -7,19 +7,10 @@
     <div id="demo" class="carousel slide" data-ride="carousel" data-interval="3000">
       <!-- The slideshow -->
       <div class="carousel-inner">
-        <div class="carousel-item active ">
+        <div class="carousel-item " *ngFor="let element of pictures; let index = index;
+                                    let isFirst = first" [ngClass]="{active:isFirst}">
           <div class="d-flex justify-content-center carousel-custom-element">
-            <img src="http://www.mandysam.com/img/random.jpg">
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="d-flex justify-content-center carousel-custom-element">
-            <img src="https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg">
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="d-flex justify-content-center carousel-custom-element">
-            <img src="https://tvline.com/wp-content/uploads/2016/08/the-simpsons-donald-trump-episode.jpg">
+            <img [src]= "'https://res.cloudinary.com/ddmivk4av/' + element.image">
           </div>
         </div>
       </div>

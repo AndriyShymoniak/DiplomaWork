@@ -1,7 +1,7 @@
 <p>mappage works!</p>
 
-<agm-map [latitude]='latitude' [longitude]='longitude'>
+<agm-map [latitude]='initialLatitude' [longitude]='initialLongitude'>
   <agm-marker *ngFor="
   let element of markers
-  " [latitude]="element.latitude" [longitude]="element.longitude"></agm-marker>
+  "[latitude]="element.latitude" [longitude]="element.longitude"></agm-marker>
 </agm-map>

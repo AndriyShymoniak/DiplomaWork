@@ -1,16 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MapApiService } from './map-api.service';
 
-class LocationMarker {
-  lat: string;
-  long: string;
-
-  constructor(lat: string, long: string) {
-    this.lat = lat;
-    this.long = long;
-  }
-}
-
 @Component({
   selector: 'app-mappage',
   templateUrl: './map-page.component.html',
@@ -19,8 +9,8 @@ class LocationMarker {
 })
 
 export class MapPageComponent implements OnInit {
-  latitude = 48.079616;
-  longitude = 38.431955;
+  initialLatitude = 48.079616;
+  initialLongitude = 38.431955;
   markers;
 
   constructor(private api: MapApiService) {
@@ -39,7 +29,4 @@ export class MapPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
-
-
