@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MapApiService } from './map-api.service';
+import { ApiService } from './api.service';
 
 describe('RecognizeApiService', () => {
-  let service: MapApiService;
+  let service: ApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MapApiService);
+    service = TestBed.inject(ApiService);
   });
 
   it('should be created', () => {

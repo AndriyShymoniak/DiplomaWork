@@ -1,17 +1,17 @@
 import {Component, NgModule, OnInit} from '@angular/core';
-import {MapApiService} from '../map-page/map-api.service';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-mainpage',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css'],
-  providers: [MapApiService]
+  providers: [ApiService]
 })
 export class MainPageComponent implements OnInit {
 
   pictures = [];
 
-  constructor(private api: MapApiService) {
+  constructor(private api: ApiService) {
     this.getRecognizedObjects();
   }
 

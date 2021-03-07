@@ -10,3 +10,4 @@ class RecognizedObject(models.Model):
                             format='jpg',
                             folder='diplomawork',
                             default='https://res.cloudinary.com/ddmivk4av/image/upload/v1615040123/diplomawork/not_found.jpg')
+

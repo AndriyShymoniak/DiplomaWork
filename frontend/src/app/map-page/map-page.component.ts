@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MapApiService } from './map-api.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-mappage',
   templateUrl: './map-page.component.html',
   styleUrls: ['./map-page.component.css'],
-  providers: [MapApiService]
+  providers: [ApiService]
 })
 
 export class MapPageComponent implements OnInit {
@@ -13,7 +13,7 @@ export class MapPageComponent implements OnInit {
   initialLongitude = 38.431955;
   markers;
 
-  constructor(private api: MapApiService) {
+  constructor(private api: ApiService) {
     this.getRecognizedObjects();
   }
 
@@ -21,6 +21,7 @@ export class MapPageComponent implements OnInit {
     this.api.getAllRecognizedObjects().subscribe(
       data => {
         this.markers = data;
+        console.log(this.markers);
       }, error => {
         console.log(error);
       }

@@ -8,7 +8,7 @@
       voluptate.
     </p>
     <div>
-      <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDrag (files)="filesDropped($event)">
+      <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDrag (files)="setPicture($event)">
         <div class="text-wrapper">
           <div class="centered">Drop your file here!</div>
         </div>
@@ -18,8 +18,9 @@
         <img *ngIf="file" [src]="file.url" class="uploaded-image-custom">
       </div>
     </div>
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar mode="indeterminate" *ngIf="isProcessingImage"></mat-progress-bar>
   </div>
+
   <div class="col-md-4">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam architecto corporis culpa cupiditate
       dolores earum eligendi eos error expedita facilis fugit harum in.</p>
@@ -31,7 +32,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-row">
-            <input type="text" class="form-control" id="inputLatitudeDeg" placeholder="48.079616">
+            <input type="text" class="form-control" id="inputLatitudeDeg" placeholder="48.079616" #lat value="{{objectToRecognize.latitude}}">
           </div>
         </div>
       </div>
@@ -41,13 +42,25 @@
         </div>
         <div class="col-md-6">
           <div class="form-row">
-            <input type="text" class="form-control" id="inputLongitudeDeg" placeholder="38.431955">
+            <input type="text" class="form-control" id="inputLongitudeDeg" placeholder="38.431955" #long value="{{objectToRecognize.longitude}}">
           </div>
         </div>
       </div>
+      <div class="form-group">
+        <br><label for="descriptionTextArea">Enter description</label>
+        <textarea class="form-control" id="descriptionTextArea" rows="2" placeholder="Description..." #desc value="{{objectToRecognize.description}}"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="modelSelect">Select vehicle type</label>
+        <select class="form-control" id="modelSelect">
+          <option>Tank (custom model)</option>
+          <option>Armored personnel carrier (custom model)</option>
+          <option>Ship</option>
+          <option>Plane or helicopter</option>
+        </select>
+      </div>
     </form>
-
-    <button type="button" class="btn btn-primary" (click)="upload()">Upload Image</button>
+    <button type="button" class="btn btn-primary" (click)="upload(lat.value, long.value, desc.value)">Upload Image</button>
 
     <div class="form-check">
       <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkboxCorrect" checked disabled>
@@ -58,6 +71,6 @@
       <label class="form-check-label" for="checkboxIncorrect">Recognition is incorrect</label>
     </div>
 
-    <button type="button" class="btn btn-success" (click)="upload()" disabled>Save to database</button>
+    <button type="button" class="btn btn-success" (click)="updateRecognizedObject()" disabled>Save to database</button>
   </div>
 </div>
