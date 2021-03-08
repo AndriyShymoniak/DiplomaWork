@@ -10,12 +10,12 @@ import { ApiService } from '../api.service';
 })
 export class RecognizePageComponent implements OnInit {
   files: FileHandle[] = [];
-  objectToRecognize = {id: -1, latitude: '', longitude: '', image: '', description: ''};
+  objectToRecognize = {id: -1, latitude: '', longitude: '', description: '', image: ''};
   isProcessingImage = false;
   recognizedObjectsList;
 
   constructor(private api: ApiService) {
-    this.objectToRecognize = {id: -1, latitude: '', longitude: '', image: '', description: ''};
+    this.objectToRecognize = {id: -1, latitude: '', longitude: '', description: '', image: ''};
   }
 
   ngOnInit(): void {
@@ -25,14 +25,15 @@ export class RecognizePageComponent implements OnInit {
     this.files = files;
   }
 
-  upload(lat, long, desc): void {
+  upload(lat, long, desc, image): void {
     this.objectToRecognize.latitude = lat;
     this.objectToRecognize.longitude = long;
     this.objectToRecognize.description = desc;
+    this.objectToRecognize.image = image;
     console.log(this.objectToRecognize);
     this.isProcessingImage = true;
     console.log(this.files);
-    this.files[0].url = 'https://res.cloudinary.com/ddmivk4av/image/upload/v1615040123/diplomawork/not_found.jpg';
+    // this.files[0].url = 'https://res.cloudinary.com/ddmivk4av/image/upload/v1615040123/diplomawork/not_found.jpg';
     this.createRecognizedObject();
   }
 

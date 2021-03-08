@@ -8,7 +8,7 @@ import {ApiService} from '../api.service';
   providers: [ApiService]
 })
 export class MainPageComponent implements OnInit {
-
+  baseUrl = 'http://127.0.0.1:8000';
   pictures = [];
 
   constructor(private api: ApiService) {
