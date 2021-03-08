@@ -33,7 +33,7 @@ export class RecognizePageComponent implements OnInit {
     this.isProcessingImage = true;
     console.log(this.files);
     this.files[0].url = 'https://res.cloudinary.com/ddmivk4av/image/upload/v1615040123/diplomawork/not_found.jpg';
-    // this.createRecognizedObject()
+    this.createRecognizedObject();
   }
 
   updateRecognizedObject = () => {

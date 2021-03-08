@@ -19,6 +19,7 @@ export class MainPageComponent implements OnInit {
     this.api.getAllRecognizedObjects().subscribe(
       data => {
         this.pictures = data;
+        console.log(this.pictures);
       }, error => {
         console.log(error);
       }

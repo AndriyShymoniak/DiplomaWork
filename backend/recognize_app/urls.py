@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework import routers
 from recognize_app.rec_api import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf.urls import url
 
-router = routers.DefaultRouter()
-router.register(r'recognizedObject', views.RecognizedObjectViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+    url(r'^recognizedObject/$', views.recognizerApi),
+    url(r'^recognizedObject/([0-9]+)$', views.recognizerApi)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
