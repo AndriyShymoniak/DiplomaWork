@@ -15,7 +15,7 @@ export class RecognizePageComponent implements OnInit {
   recognizedObjectsList;
 
   constructor(private api: ApiService) {
-    this.objectToRecognize = {id: -1, latitude: '', longitude: '', description: '', image: ''};
+    this.objectToRecognize = {id: 100, latitude: '', longitude: '', description: '', image: ''};
   }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class RecognizePageComponent implements OnInit {
     this.objectToRecognize.latitude = lat;
     this.objectToRecognize.longitude = long;
     this.objectToRecognize.description = desc;
-    this.objectToRecognize.image = image;
+    this.objectToRecognize.image = image.file;
     console.log(this.objectToRecognize);
     this.isProcessingImage = true;
     console.log(this.files);
