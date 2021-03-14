@@ -10,7 +10,7 @@
         <div class="carousel-item " *ngFor="let element of pictures; let index = index;
                                     let isFirst = first" [ngClass]="{active:isFirst}">
           <div class="d-flex justify-content-center carousel-custom-element">
-            <img [src]= "baseUrl + element.image">
+            <img [src]= "this.api.baseUrl + '/' + element.image">
           </div>
         </div>
       </div>

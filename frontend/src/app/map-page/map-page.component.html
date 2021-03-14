@@ -2,6 +2,8 @@
 
 <agm-map [latitude]='initialLatitude' [longitude]='initialLongitude'>
   <agm-marker *ngFor="
-  let element of markers
-  "[latitude]="element.latitude" [longitude]="element.longitude"></agm-marker>
+    let element of markers
+    "[latitude]="element.latitude
+    "[longitude]="element.longitude"
+  ></agm-marker>
 </agm-map>

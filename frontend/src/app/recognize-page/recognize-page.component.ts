@@ -22,21 +22,21 @@ export class RecognizePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setPicture(files: FileHandle[]): void {
+  setDroppedPicture(files: FileHandle[]): void {
     this.files = files;
   }
 
   getPicture(imageName): void {
-    this.files[0].url = 'http://127.0.0.1:8000' + '/' +  imageName;
+    this.files[0].url = this.api.baseUrl + '/' + imageName;
   }
 
   uploadPicture(image): void {
     this.isProcessingImage = true;
     this.api.upload(image).subscribe(
       data => {
-        console.log(data);
         this.getPicture(data);
         this.isProcessingImage = false;
+        this.saveButtonIsLocked = false;
       }, error => {
         console.log(error);
       }
@@ -48,40 +48,14 @@ export class RecognizePageComponent implements OnInit {
     this.objectToRecognize.longitude = long;
     this.objectToRecognize.description = desc;
     this.objectToRecognize.image = image.file.name;
-    // this.uploadPicture(image.file);
-    // this.getPicture(this.objectToRecognize.image);
-    this.isProcessingImage = true;
     console.log(this.objectToRecognize);
     this.createRecognizedObject();
-    this.updateRecognizedObject();
-  }
-
-  updateRecognizedObject = () => {
-    this.api.updateRecognizedObject(this.objectToRecognize).subscribe(
-      data => {
-        this.objectToRecognize = data;
-      }, error => {
-        console.log(error);
-      }
-    );
   }
 
   createRecognizedObject = () => {
     this.api.createRecognizedObject(this.objectToRecognize).subscribe(
       data => {
-        // console.log(data);
         this.recognizedObjectsList.push(data);
-        console.log(this.recognizedObjectsList);
-      }, error => {
-        console.log(error);
-      }
-    );
-  }
-
-  getRecognizedObjects = () => {
-    this.api.getAllRecognizedObjects().subscribe(
-      data => {
-        this.recognizedObjectsList = data;
       }, error => {
         console.log(error);
       }

@@ -8,7 +8,7 @@
       voluptate.
     </p>
     <div>
-      <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDrag (files)="setPicture($event)">
+      <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDrag (files)="setDroppedPicture($event)">
         <div class="text-wrapper">
           <div class="centered">Drop your file here!</div>
         </div>
@@ -64,9 +64,7 @@
         </select>
       </div>
     </form>
-    <button type="button" class="btn btn-primary" (click)="uploadPicture(files[0])">Upload
-      Image
-    </button>
+    <button type="button" class="btn btn-primary" (click)="uploadPicture(files[0])">Upload Image</button>
 
     <div class="form-check">
       <input class="form-check-input" type="radio" name="flexRadioDefault" id="checkboxCorrect" checked
@@ -79,7 +77,8 @@
       <label class="form-check-label" for="checkboxIncorrect">Recognition is incorrect</label>
     </div>
 
-    <button type="button" class="btn btn-success" (click)="saveToDatabase(lat.value, long.value, desc.value, files[0])" [disabled]="saveButtonIsLocked">
+    <button type="button" class="btn btn-success" (click)="saveToDatabase(lat.value, long.value, desc.value, files[0])"
+            [disabled]="saveButtonIsLocked">
       Save to database
     </button>
   </div>
