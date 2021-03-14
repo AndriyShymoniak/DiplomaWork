@@ -42,14 +42,6 @@ export class ApiService {
   upload(image: any): Observable<any> {
     const formData = new FormData();
     formData.append('uploadedFile', image.file);
-    console.log(image);
-    console.log('form is like');
-    console.log(formData);
-    console.log(formData.get);
     return this.http.post<any>(this.baseUrl + '/saveFile/', formData);
-  }
-
-  getPhoto(pictureName): Observable<any> {
-    return this.http.get(this.baseUrl + pictureName, {headers: this.httpHeaders});
   }
 }

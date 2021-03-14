@@ -27,19 +27,16 @@ export class RecognizePageComponent implements OnInit {
   }
 
   getPicture(imageName): void {
-    this.api.getPhoto(imageName).subscribe(
-      data => {
-        this.files[0] = data;
-      }, error => {
-        console.log(error);
-      }
-    );
+    this.files[0].url = 'http://127.0.0.1:8000' + '/' +  imageName;
   }
 
   uploadPicture(image): void {
+    this.isProcessingImage = true;
     this.api.upload(image).subscribe(
       data => {
         console.log(data);
+        this.getPicture(data);
+        this.isProcessingImage = false;
       }, error => {
         console.log(error);
       }
