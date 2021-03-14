@@ -1,11 +1,11 @@
 from django.core.files.storage import default_storage
 from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 from rest_framework.parsers import JSONParser
 from pathlib import Path
 from .models import RecognizedObject
 from .serializers import RecognizedObjectSerializer
-from django.conf import settings
 from .imageairecognizer.ImageRecognizer import recognize_custom
 
 
@@ -43,11 +43,14 @@ def recognizerApi(request, id=0):
 
 
 @csrf_exempt
-def saveFile(request):
+def saveFile(request, vehicle='TANK'):
     file = request.FILES['uploadedFile']
     file_name = default_storage.save(file.name, file)
     extension = Path(file.name).suffix
     if extension == ".jpg" or extension == ".mp4":
         file_full_path = str(settings.BASE_DIR) + '\\media\\' + str(Path(file.name))
-        recognize_custom(file_full_path)
-    return JsonResponse(file_name, safe=False)
+        recognize_custom(file_full_path, vehicle)
+        return JsonResponse(file_name, safe=False)
+    else:
+        return JsonResponse("Choose another image format (.mp4, .jpg allowed)", safe=False)
+
