@@ -1,21 +1,22 @@
 import {Component, OnInit} from '@angular/core';
 import {FileHandle} from './drag-drop.directive';
-import { ApiService } from '../api.service';
+import {ApiService} from '../api.service';
 
 @Component({
-  selector: 'app-recognizepage',
+  selector: 'app-recognize-page',
   templateUrl: './recognize-page.component.html',
   styleUrls: ['./recognize-page.component.css'],
   providers: [ApiService]
 })
 export class RecognizePageComponent implements OnInit {
+  isProcessingImage = false;
+  saveButtonIsLocked = true;
   files: FileHandle[] = [];
   objectToRecognize = {id: -1, latitude: '', longitude: '', description: '', image: ''};
-  isProcessingImage = false;
   recognizedObjectsList;
 
   constructor(private api: ApiService) {
-    this.objectToRecognize = {id: 100, latitude: '', longitude: '', description: '', image: ''};
+    this.objectToRecognize = {id: -1, latitude: '', longitude: '', description: '', image: ''};
   }
 
   ngOnInit(): void {
@@ -25,16 +26,37 @@ export class RecognizePageComponent implements OnInit {
     this.files = files;
   }
 
-  upload(lat, long, desc, image): void {
+  getPicture(imageName): void {
+    this.api.getPhoto(imageName).subscribe(
+      data => {
+        this.files[0] = data;
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
+  uploadPicture(image): void {
+    this.api.upload(image).subscribe(
+      data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
+  saveToDatabase(lat, long, desc, image): void {
     this.objectToRecognize.latitude = lat;
     this.objectToRecognize.longitude = long;
     this.objectToRecognize.description = desc;
-    this.objectToRecognize.image = image.file;
-    console.log(this.objectToRecognize);
+    this.objectToRecognize.image = image.file.name;
+    // this.uploadPicture(image.file);
+    // this.getPicture(this.objectToRecognize.image);
     this.isProcessingImage = true;
-    console.log(this.files);
-    // this.files[0].url = 'https://res.cloudinary.com/ddmivk4av/image/upload/v1615040123/diplomawork/not_found.jpg';
+    console.log(this.objectToRecognize);
     this.createRecognizedObject();
+    this.updateRecognizedObject();
   }
 
   updateRecognizedObject = () => {
@@ -50,8 +72,9 @@ export class RecognizePageComponent implements OnInit {
   createRecognizedObject = () => {
     this.api.createRecognizedObject(this.objectToRecognize).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.recognizedObjectsList.push(data);
+        console.log(this.recognizedObjectsList);
       }, error => {
         console.log(error);
       }
