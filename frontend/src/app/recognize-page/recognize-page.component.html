@@ -1,11 +1,11 @@
-<p>recognizepage works!</p>
 <div class="row">
   <div class="col-md-8">
+    <h2>
+      Header h2
+    </h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus adipisci alias aperiam corporis facere
-      fuga fugit magni maiores nam nesciunt placeat provident qui recusandae repellendus totam, vero. Aspernatur
-      corporis cumque earum fugiat ipsum magni, minima reiciendis sequi? Doloribus eveniet quis repellendus sunt
-      voluptate.
+      This page allows you to recognize military vehicles on pictures and track them on videos.<br>
+      Recognition results will be collected and then used to improve existing recognition models.<br>
     </p>
     <div>
       <div *ngIf="!files.length" class="col-12 rmpm dropzone" appDrag (files)="setDroppedPicture($event)">
@@ -23,8 +23,12 @@
   </div>
 
   <div class="col-md-4">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam architecto corporis culpa cupiditate
-      dolores earum eligendi eos error expedita facilis fugit harum in.</p>
+    <p style="font-size: 0.9em; margin-top: 1em;">
+      Firstly upload picture or video and select vehicle type.<br>
+      Then press 'Upload Image' button and wait until recognition results appear.
+      You can change vehicle type on the same image to get better results.<br>
+      After that you can fill the form and save data to database.
+    </p>
     <h5>DD (decimal degrees)*</h5>
     <form>
       <div class="form-row">

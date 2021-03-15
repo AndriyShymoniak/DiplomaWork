@@ -1,9 +1,14 @@
-<p>mappage works!</p>
-
-<agm-map [latitude]='initialLatitude' [longitude]='initialLongitude'>
-  <agm-marker *ngFor="
+<div style="margin-top: 20px">
+  <agm-map [latitude]='initialLatitude' [longitude]='initialLongitude'>
+    <agm-marker *ngFor="
     let element of markers
     "[latitude]="element.latitude
-    "[longitude]="element.longitude"
-  ></agm-marker>
-</agm-map>
+    "[longitude]="element.longitude">
+      <agm-info-window [disableAutoPan]="false">
+        <img [src]= "this.api.baseUrl + '/' + element.image"  id="marker_img" >
+        <p [innerText]="element.description"></p>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
+
