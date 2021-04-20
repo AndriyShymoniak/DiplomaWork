@@ -15,8 +15,16 @@
       </div>
       <!--droped image preview-->
       <div>
-        <img *ngIf="files.length" [src]="files[0].url" class="uploaded-image-custom" #picture
-             value="{{objectToRecognize.image}}">
+        <div *ngIf="!isFileVideo(files[0])">
+          <img *ngIf="files.length" [src]="files[0].url" class="uploaded-image-custom" #picture
+               value="{{objectToRecognize.image}}">
+        </div>
+        <div *ngIf="isFileVideo(files[0])">
+          <video style="max-width: 600px" controls class="video-custom">
+            <source [src]="files[0].url" type="video/mp4">
+            Your browser does not support HTML video.
+          </video>
+        </div>
       </div>
     </div>
     <mat-progress-bar mode="indeterminate" *ngIf="isProcessingImage"></mat-progress-bar>

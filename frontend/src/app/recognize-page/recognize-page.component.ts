@@ -22,6 +22,11 @@ export class RecognizePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isFileVideo(file: FileHandle): boolean {
+    const extension = file.file.name.split('.').pop();
+    return extension === 'mp4';
+  }
+
   setDroppedPicture(files: FileHandle[]): void {
     this.files = files;
   }
