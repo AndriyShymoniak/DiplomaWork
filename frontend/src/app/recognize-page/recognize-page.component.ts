@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FileHandle} from './drag-drop.directive';
 import {ApiService} from '../api.service';
 
@@ -9,6 +9,7 @@ import {ApiService} from '../api.service';
   providers: [ApiService]
 })
 export class RecognizePageComponent implements OnInit {
+  @ViewChild('videoElement') videoElement;
   isProcessingImage = false;
   saveButtonIsLocked = true;
   files: FileHandle[] = [];
@@ -32,7 +33,11 @@ export class RecognizePageComponent implements OnInit {
   }
 
   getPicture(imageName): void {
+    console.log(this.api.baseUrl + '/' + imageName);
     this.files[0].url = this.api.baseUrl + '/' + imageName;
+    if (imageName.includes('.mp4')){
+      this.videoElement.nativeElement.load();
+    }
   }
 
   uploadPicture(image): void {

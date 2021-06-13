@@ -6,7 +6,7 @@ from rest_framework.parsers import JSONParser
 from pathlib import Path
 from .models import RecognizedObject
 from .serializers import RecognizedObjectSerializer
-from .imageairecognizer.ImageRecognizer import recognize_custom
+from .imageairecognizer.ImageRecognizer import ImageRecognizerCls
 
 
 
@@ -49,7 +49,7 @@ def saveFile(request, vehicle='TANK'):
     extension = Path(file.name).suffix
     if extension == ".jpg" or extension == ".mp4":
         file_full_path = str(settings.BASE_DIR) + '\\media\\' + str(Path(file.name))
-        recognize_custom(file_full_path, vehicle)
+        ImageRecognizerCls.recognize_custom(file_full_path, vehicle, (extension==".mp4"))
         return JsonResponse(file_name, safe=False)
     else:
         return JsonResponse("Choose another image format (.mp4, .jpg allowed)", safe=False)

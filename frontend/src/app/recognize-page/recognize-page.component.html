@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-8">
     <h2>
-      Header h2
+      Try it yourself!
     </h2>
     <p>
       This page allows you to recognize military vehicles on pictures and track them on videos.<br>
@@ -20,7 +20,7 @@
                value="{{objectToRecognize.image}}">
         </div>
         <div *ngIf="isFileVideo(files[0])">
-          <video style="max-width: 600px" controls class="video-custom">
+          <video style="max-width: 600px" controls class="video-custom" #videoElement>
             <source [src]="files[0].url" type="video/mp4">
             Your browser does not support HTML video.
           </video>
@@ -68,11 +68,11 @@
       </div>
       <div class="form-group">
         <label for="modelSelect">Select vehicle type</label>
-        <select class="form-control" id="modelSelect">
-          <option>Tank (custom model)</option>
-          <option>Armored personnel carrier (custom model)</option>
-          <option>Ship</option>
-          <option>Plane or helicopter</option>
+        <select class="form-control" id="modelSelect" #vehicleTypeSelection>
+          <option value="1" selected>Tank (custom model)</option>
+          <option value="2">Armored personnel carrier (custom model)</option>
+<!--          <option>Ship</option>-->
+<!--          <option>Plane or helicopter</option>-->
         </select>
       </div>
     </form>
